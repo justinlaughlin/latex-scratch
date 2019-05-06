@@ -144,14 +144,29 @@ Vector of cytosolic concentrations:
 
 \begin{align*}
 \partial_t u_i &= \nabla \cdot (D_{ij} \nabla u_j) + f_i(u,t) ~\text{in}~ \Omega \\
-D_{ij} (\partial_n u_j) &= J_i(u|_{\partial\Omega},v,t) ~\text{on}~ \partial\Omega
+D_{ij} (\partial_n u_j) &= J_{ik}(u|_{\partial\Omega_k},v,t) ~\text{on}~ \partial\Omega_k
 \end{align*}
 
 System of ODEs:
 \begin{align*}
-\partial_t v_i = g_i(u|_{\partial\Omega},v,t)
+\partial_t v_{ik} = g_{ik}(u|_{\partial\Omega_k},v,t) ~\text{on}~ \partial\Omega_k
 \end{align*}
 
+Example of coupling
+
+\begin{equation}
+J_{13} = a_0(a_1-u_1) \left[\frac{v_1 u_1 u_2}{(u_1+a_2)(u_2+a_3)} \right]^3 - \frac{a_4 u_1^2}{u_1^2 + a_5}
+\end{equation}
+\begin{equation}
+g_{13} = (b_0 - (u_1|_{\partial\Omega_3} + b_0)v_1)b_1
+\end{equation}
+
+
+
+Heflrich Energy:
+\begin{equation}
+	e = \kappa_H H^2 + \kappa_G K
+\end{equation}
 
 
 % References
